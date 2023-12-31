@@ -6,15 +6,15 @@ import '../sign/login_signin_section.dart';
 import '../sign/logo_section.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key});
+ const HomePage({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+            padding:  EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
             child: Column(
               children: [
                 CustomAppbar(),

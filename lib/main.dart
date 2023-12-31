@@ -1,5 +1,7 @@
+import 'package:ecommarce/provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/home_page.dart';
 
@@ -16,10 +18,15 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (BuildContext context, Widget? child) {
         print('ScreenUtil initialized successfully');
-        return const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          home: HomePage(),
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider (create: (_) => AuthProvider()),
+          ],
+          child: const MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            home: HomePage(),
+          ),
         );
       },
     );
