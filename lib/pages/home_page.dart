@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import '../sign/custom_appbar.dart';
 import '../sign/login_signin_section.dart';
@@ -10,16 +10,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            children: [
-              CustomAppbar(),
-              LogoSection(),
-              LoginSigninSection(),
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+            child: Column(
+              children: [
+                CustomAppbar(),
+                LogoSection(),
+                LoginSigninSection(),
+              ],
+            ),
           ),
         ),
       ),
