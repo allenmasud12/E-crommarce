@@ -6,21 +6,21 @@ import '../pages/login_page.dart';
 class RouterManager {
   static final routeConfig = GoRouter(routes:[
     GoRoute(
+      name: RouteNames.HOME_PAGE,
+      path: "/${RouteNames.HOME_PAGE}",
+      builder: (context, stste) => const HomePage(),
+    ),
+    GoRoute(
         name: RouteNames.LOGIN,
         path: '/',
         builder: (context, stste) => const LoginPage(),
-    ),
-    GoRoute(
-      name: RouteNames.HOME_PAge,
-      path: "/${RouteNames.HOME_PAge}",
-      builder: (context, stste) => const HomePage(),
     ),
   ],
   );
 }
 
 abstract class RouteNames {
- static String LOGIN = '/';
- static String HOME_PAge = 'homePage';
+ static String HOME_PAGE = '/';
+ static String LOGIN = 'homePage';
 
 }
