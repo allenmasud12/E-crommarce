@@ -1,7 +1,9 @@
 import 'package:ecommarce/core/contains/mycolors.dart';
 import 'package:ecommarce/provider/auth_provider.dart';
+import 'package:ecommarce/route/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
@@ -89,10 +91,13 @@ class LoginSigninSection extends StatelessWidget {
             onPressed: () async {
               String username = emailTextEditingController.text;
               String password = passwordTextEditingController.text;
-              Provider.of<AuthProvider>(context, listen: false)
+              bool isLoginSucced = await Provider.of<AuthProvider>(context, listen: false)
                   .login(username, password);
+              if(isLoginSucced){
+                context.goNamed(RouteNames.HOME_PAge);
+              }
             },
-            child: Consumer<AuthProvider>(
+            child:  Consumer<AuthProvider>(
                 builder: (context, authProvider, _) => authProvider.isLoding
                     ? CircularProgressIndicator(
                         color: Colors.white,

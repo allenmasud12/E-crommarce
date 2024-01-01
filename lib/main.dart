@@ -1,9 +1,9 @@
 import 'package:ecommarce/provider/auth_provider.dart';
+import 'package:ecommarce/route/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
           providers: [
             ChangeNotifierProvider (create: (_) => AuthProvider()),
           ],
-          child: const MaterialApp(
+          child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
+            routerConfig: RouterManager.routeConfig,
             title: 'Flutter Demo',
-            home: HomePage(),
           ),
         );
       },

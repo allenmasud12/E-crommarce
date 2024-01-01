@@ -7,7 +7,7 @@ bool isLoding = false;
 bool hasError = false;
 String? errorMassage;
 
-void login(String username, String password) async {
+Future<bool> login(String username, String password) async {
     isLoding = true;
     hasError = false;
     notifyListeners();
@@ -19,6 +19,7 @@ void login(String username, String password) async {
     );
     if(response.statusCode == 200){
       print(response.body);
+      return true;
     }else{
       hasError = true;
       errorMassage = "Login Faild";
@@ -26,5 +27,6 @@ void login(String username, String password) async {
     }
     isLoding = false;
     notifyListeners();
+    return false;
 }
 }
